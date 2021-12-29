@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* fondo para que el circulo se vea bien al momento de aplicar el box shadow  */
+    background-color: #e3edf7;
+    /* posicionamos todo en el centro de la pantalla con el flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* contenedor de los dos circulos */
+
+.skill{
+    width: 160px;
+    height: 160px;
+    /* propiedad para poder colocar nuestro svg relativo a este padre  */
+    position: relative;
+
+}
+/* circulo grande */
+
+.outer{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    padding: 20px;
+}
+
+/* circulo pequeno */
+
+.inner{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+
+}
+
+/* pocicionamos el svg */
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* svg styles  */
+
+circle{
+    /* color por defecto  */
+    fill: none;
+    /* color */
+    stroke: url(#GradientColor);
+    /* tamano de borde en svg  */
+    stroke-width: 20px;
+    /*la barra de progreso al maximo con 472  */
+    stroke-dasharray: 472;
+    /* 0 = no borramos nada queda pintado todo    , 472 =  eliminamos todo el pintado   */
+    stroke-dashoffset: 472;
+
+    /* ANIMACIONES */
+
+    animation: anim 2s linear forwards;
+    
+}
+
+/* NOTA : calcular el porcentaje en el caso de que el porcentaje es 65% */
+
+/* 472 - 472 * 0.65 */
+
+
+/* Keyframes */
+
+@keyframes anim {
+    100%{
+        stroke-dashoffset: 165.2;
+    }
+}
+
+
